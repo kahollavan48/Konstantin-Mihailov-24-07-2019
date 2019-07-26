@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-12 p-0">
+    <nav class="navbar navbar-expand-lg  py-2 " [class.themeDay]="theme" [class.themeNight]="!theme">
+      <a class="navbar-brand" href="" routerLink="/"> HeroloWeather<i class="fas fa-cloud-sun"></i>App</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" [class.colorNight]="!theme"><i class="fas fa-hamburger"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a *ngIf="theme" class="nav-link switch" (click)="changeTheme()"> {{state}} <i class="fas fa-toggle-on"></i>
+            </a>
+            <a *ngIf="!theme" class="nav-link switch" (click)="changeTheme()"> {{state}} <i
+                class="fas fa-toggle-off"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" routerLinkActive="active current" routerLink="/home"><i class="fas fa-home"></i>
+              Home </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="" routerLinkActive="active current" routerLink="/favorites"><i
+                class="fas fa-star"></i> My Favorites</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>

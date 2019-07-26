@@ -1,0 +1,26 @@
+.switch:hover{
+  cursor: pointer;
+}
+.themeDay{
+background-color: #e3f2fd;
+}
+.themeDay a{
+  color: black;
+}
+.themeNight {
+  background-color: #333638;
+}
+.themeNight a{
+  color: gold;
+}
+.colorNight{
+  color: gold;
+}
+.fontTheme{
+  /* background-image: url('https://cdn.dribbble.com/users/261567/screenshots/1099769/googleweather.gif'); */
+  background-image: url('https://icon-library.net/images/weather-icon-gif/weather-icon-gif-7.jpg');
+  background-size: 100% 100%;
+}
+.current{
+  border-bottom: 1px grey solid;
+}

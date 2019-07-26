@@ -1,0 +1,42 @@
+<div class="row animated slideInDown" [class.fontThemeNight]="!state" [class.fontThemeDay]="state"
+  style="min-height: 85vh">
+  <div class="col-5 mt-3 m-auto ">
+    <div class="input-group mb-1">
+      <input type="text" class="form-control" #name [(ngModel)]="cityName" placeholder="Please enter city name!"
+        aria-label="Recipient's username" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" (click)="findCity(cityName)" type="button"><i
+            class="fas fa-search"></i> Search</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 mx-auto" *ngIf="citySearchWeatherResult">
+    <div class="text-center buttn" style="background-color: transparent;" [class.darkFont]="!state"
+      [class.backgroundDay]="state"
+      (click)="addTutorial(cityKey,cityNameOutput,citySearchWeatherResult.DailyForecasts)">
+      Add {{cityNameOutput}} to favorites <a><i class="fas fa-star"></i></a>
+    </div>
+    <div *ngFor="let weather of citySearchWeatherResult.DailyForecasts; let i = index">
+      <div class="shadow col-7 mx-auto picCard d-flex p-3 mt-1 rounded" [class.blackFont]="!state"
+        [class.backgroundDay]="state">
+        <img class="imagePlace mr-5" *ngIf="state" style="width: 90px"
+          src="assets/images/{{weather.Day['Icon']}}-s.png">
+        <img class="imagePlace mr-5" *ngIf="!state" style="width: 90px"
+          src="assets/images/{{weather.Night['Icon']}}-s.png">
+        <div>
+          <span class=""> {{cityNameOutput}} {{weather.Date | date}}</span>
+          {{weather.Day['Icon']}}
+          <h6 *ngIf="state" class="p-0 m-0 mb-1">Day:
+            {{weather.Temperature['Minimum'].Value}}{{weather.Temperature['Minimum'].Unit}}
+            {{weather.Day['IconPhrase']}}
+          </h6>
+          <h6 *ngIf="!state" class="p-0 m-0 mb-1">Night:
+            {{weather.Temperature['Maximum'].Value}}{{weather.Temperature['Minimum'].Unit}}
+            {{weather.Night['IconPhrase']}}
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

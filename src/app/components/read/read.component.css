@@ -1,0 +1,63 @@
+.buttn:hover{
+  cursor: pointer;
+  color:#ffc107;
+}
+.star{
+  color: gold;
+}
+.delBtn{
+  color: black;
+}
+.delBtn:hover{
+  cursor: pointer;
+}
+.picCard{
+  transition: 0.5s ease;
+  position: relative;
+  z-index: 1;
+}
+.picCard:hover{
+  transform: scale(1.1);
+  z-index: 111;
+}
+.imagePlace{
+  transition: 0.5s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.buttn:hover{
+  cursor: pointer;
+  color:#ffc107;
+}
+.btns{
+  display: none;
+}
+/* .picCard:hover .imagePlace{
+  transform: scale(2);
+  z-index: 111;
+} */
+.picCard:hover .btns{
+  display: block;
+}
+.backgroundDay{
+  background-color: #F0F8FF;
+}
+.backgroundNight{
+  background-color: darkgrey;
+}
+.blackFont{
+  background-color: rgb(14, 14, 14);
+  color: white;
+}
+.darkFont{
+  color: white;
+}
+.fontThemeNight{
+  background-image: url('../../../assets/images/night.gif');
+  background-size: 100% 100%;
+}
+.fontThemeDay{
+  background-image: url('../../../assets/images/day.gif');
+  background-size: 100% 100%;
+}
