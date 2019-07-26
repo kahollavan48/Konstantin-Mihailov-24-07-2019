@@ -18,11 +18,11 @@
             <div>
               <span class=""> {{tutorial.name}} {{weather.Date | date}}</span>
               <h6 *ngIf="state" class="p-0 m-0 mb-1">Day:
-                {{weather.Temperature['Minimum'].Value}}{{weather.Temperature['Minimum'].Unit}}
+                {{weather.Temperature['Maximum'].Value}}{{weather.Temperature['Minimum'].Unit}}
                 {{weather.Day['IconPhrase']}}
               </h6>
               <h6 *ngIf="!state" class="p-0 m-0 mb-1">Night:
-                {{weather.Temperature['Maximum'].Value}}{{weather.Temperature['Minimum'].Unit}}
+                {{weather.Temperature['Minimum'].Value}}{{weather.Temperature['Minimum'].Unit}}
                 {{weather.Night['IconPhrase']}}
               </h6>
             </div>

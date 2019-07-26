@@ -9,8 +9,8 @@
             class="fas fa-search"></i> Search</button>
       </div>
     </div>
+    <button class="btn btn-sm btn-light" type="button" (click)="changeUnit()">Change Unit {{unit}}</button>
   </div>
-
   <div class="col-12 mx-auto" *ngIf="citySearchWeatherResult">
     <div class="text-center buttn" style="background-color: transparent;" [class.darkFont]="!state"
       [class.backgroundDay]="state"
@@ -28,11 +28,11 @@
           <span class=""> {{cityNameOutput}} {{weather.Date | date}}</span>
           {{weather.Day['Icon']}}
           <h6 *ngIf="state" class="p-0 m-0 mb-1">Day:
-            {{weather.Temperature['Minimum'].Value}}{{weather.Temperature['Minimum'].Unit}}
+            {{weather.Temperature['Maximum'].Value}}{{weather.Temperature['Minimum'].Unit}}
             {{weather.Day['IconPhrase']}}
           </h6>
           <h6 *ngIf="!state" class="p-0 m-0 mb-1">Night:
-            {{weather.Temperature['Maximum'].Value}}{{weather.Temperature['Minimum'].Unit}}
+            {{weather.Temperature['Minimum'].Value}}{{weather.Temperature['Minimum'].Unit}}
             {{weather.Night['IconPhrase']}}
           </h6>
         </div>

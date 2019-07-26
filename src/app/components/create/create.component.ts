@@ -34,6 +34,8 @@ export class CreateComponent implements OnInit {
   tutorials: Observable<Tutorial[]>;
   favoritesArr: any[] = [];
   citySearchWeatherResult: any;
+  flag: boolean = false;
+  unit: string = 'C';
 
   constructor(
     private title: Title,
@@ -48,6 +50,11 @@ export class CreateComponent implements OnInit {
     this.getUrlParam();
     this.ts.currentMessage.subscribe(message => this.state = message);
     this.title.setTitle('Weather App | Home');
+  }
+
+  changeUnit() {
+    this.flag = !this.flag;
+    this.unit = this.flag ? "F" : "C"
   }
 
   getUrlParam() {
@@ -124,7 +131,7 @@ export class CreateComponent implements OnInit {
 
   getDefWeather(key) {
     return new Promise((resolve, reject) => {
-      this.cs.getWeatherByCityKey(key).subscribe((weather: any) => {
+      this.cs.getWeatherByCityKey(key, this.flag).subscribe((weather: any) => {
         this.citySearchWeatherResult = weather;
         resolve(weather);
       });
@@ -164,7 +171,7 @@ export class CreateComponent implements OnInit {
     } else if (regExp.test(ct)) {
       this.cityNameOutput = ct;
       this.getCityKeyByCityName(ct).then((key) => {
-        this.cs.getWeatherByCityKey(key).subscribe((weather: any) => {
+        this.cs.getWeatherByCityKey(key, this.flag).subscribe((weather: any) => {
           this.citySearchWeatherResult = weather;
         })
       }).catch((e) => {
