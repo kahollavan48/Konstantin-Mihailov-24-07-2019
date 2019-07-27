@@ -1,10 +1,10 @@
-<div class="row animated slideInDown" [class.backgroundNight]="!state" [class.backgroundDay]="state"
+<div class="row animated slideInDown" [class.fontThemeNight]="!state" [class.fontThemeDay]="state"
   style="min-height: 75vh">
   <div class="col-12 mx-auto " *ngIf="tutorials">
-    <h3>Favorites <i class="fas fa-star star"></i></h3>
+    <h3 [class.textStyleDay]="!state" [class.textStyleNight]="state">Favorites <i class="fas fa-star star"></i></h3>
     <ul>
       <li *ngFor="let tutorial of tutorials | async; let i = index">
-        {{tutorial.name}}
+        <b class="cityName">{{tutorial.name}}</b>
         <a (click)="delTutorial(i)"> <i class="fas fa-trash-alt mx-2 delBtn"></i></a>
         <a href="" routerLink="/home/{{ tutorial.name }}" routerLinkActive="router-link-active"><i
             class="fas fa-eye delBtn"></i></a>
