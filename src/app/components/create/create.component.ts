@@ -159,9 +159,9 @@ export class CreateComponent implements OnInit {
   }
 
   findCity(cityName) {
-    const ct = this.inputTitleCase(cityName);
+    const ct = cityName;
     const regExp = new RegExp('^[a-z A-Z]+$');
-    if (ct === undefined || ct === '') {
+    if (!ct || ct === '') {
       this.fms.show('Please fill the text input!',
         {
           cssClass: 'fixed-top mx-auto mt-5 bg-danger w-50 text-white text-center',
@@ -169,7 +169,7 @@ export class CreateComponent implements OnInit {
         });
       return
     } else if (regExp.test(ct)) {
-      this.cityNameOutput = ct;
+      this.cityNameOutput = this.inputTitleCase(ct);
       this.getCityKeyByCityName(ct).then((key) => {
         this.cs.getWeatherByCityKey(key, this.flag).subscribe((weather: any) => {
           this.citySearchWeatherResult = weather;
