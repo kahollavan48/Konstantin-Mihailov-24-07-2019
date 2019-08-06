@@ -153,7 +153,8 @@ export class CreateComponent implements OnInit {
   }
 
   inputTitleCase = input => {
-    return input.split(' ').map(word => {
+    let inputText = input.toLowerCase();
+    return inputText.split(' ').map(word => {
       return word[0].toUpperCase() + word.substr(1);
     }).join(' ');
   }
@@ -170,6 +171,7 @@ export class CreateComponent implements OnInit {
       return
     } else if (regExp.test(ct)) {
       this.cityNameOutput = this.inputTitleCase(ct);
+      console.log(this.cityNameOutput);
       this.getCityKeyByCityName(ct).then((key) => {
         this.cs.getWeatherByCityKey(key, this.flag).subscribe((weather: any) => {
           this.citySearchWeatherResult = weather;
